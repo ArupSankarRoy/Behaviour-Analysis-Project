@@ -47,11 +47,11 @@ def video_feed():
         if os.path.exists(upload_dir):
             shutil.rmtree(upload_dir)
 
-        
+        # Change these paths ....
         return Response(detect_behaviour(
-                video_file_path=r"C:\Users\arups\Downloads\videoplayback (1).mp4",
+                video_file_path=r"C:\Users\arups\Downloads\videoplayback (1).mp4", 
                 model_file_path_1=r"D:\Final-Year-Project\yolo11x-pose.pt",
-                model_file_path_2=r"D:\Final-Year-Project\uit_model_final.pt"
+                model_file_path_2=r"D:\Final-Year-Project\uit_model_final.pth"
             ),
                 mimetype='multipart/x-mixed-replace; boundary=frame') 
 
@@ -61,10 +61,3 @@ def video_feed():
 
 if __name__=="__main__":
     app.run(debug=True)
-
-
-
-
-
-
-
