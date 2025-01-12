@@ -28,28 +28,34 @@ def detect_behaviour(video_file_path: str, model_file_path_1: str, model_file_pa
 
     try:
 
-        if len(os.listdir(os.path.join(os.getcwd(), 'model_1'))) == 0 \
-            and len(os.listdir(os.path.join(os.getcwd(), 'model_2'))) == 0 \
-            and len(os.listdir(os.path.join(os.getcwd(), 'upload'))) == 0 and \
-            os.path.exists(os.path.join(os.getcwd(),video_file_path)) and \
-            os.path.exists(os.path.join(os.getcwd(),model_file_path_1)) and \
-            os.path.exists(os.path.join(os.getcwd(),model_file_path_2)):
+        # if len(os.listdir(os.path.join(os.getcwd(), 'model_1'))) == 0 \
+        #     and len(os.listdir(os.path.join(os.getcwd(), 'model_2'))) == 0 \
+        #     and len(os.listdir(os.path.join(os.getcwd(), 'upload'))) == 0 and \
+        #     os.path.exists(os.path.join(os.getcwd(),video_file_path)) and \
+        #     os.path.exists(os.path.join(os.getcwd(),model_file_path_1)) and \
+        #     os.path.exists(os.path.join(os.getcwd(),model_file_path_2)):
 
-            check_path_or_not_video = file_save(video_file_path, 'upload')
-            check_path_or_not_model_1 = file_save(model_file_path_1, 'model_1')
-            check_path_or_not_model_2 = file_save(model_file_path_2, 'model_2')
+        #     check_path_or_not_video = file_save(video_file_path, 'upload')
+        #     check_path_or_not_model_1 = file_save(model_file_path_1, 'model_1')
+        #     check_path_or_not_model_2 = file_save(model_file_path_2, 'model_2')
 
+        # elif not os.path.exists(os.path.join(os.getcwd(),'upload')) and os.path.exists(video_file_path):
+        #     os.makedirs(os.path.join(os.getcwd(),'upload'),exist_ok=True)
+        #     check_path_or_not_video = file_save(video_file_path, 'upload')
 
-        elif len(os.listdir(os.path.join(os.getcwd(), 'model_1'))) >0 \
-            and len(os.listdir(os.path.join(os.getcwd(), 'model_2'))) >0 \
-            and len(os.listdir(os.path.join(os.getcwd(), 'upload'))) >0:
-            check_path_or_not_video = video_file_path
-            check_path_or_not_model_1 = model_file_path_1
-            check_path_or_not_model_2 = model_file_path_2
+        # elif len(os.listdir(os.path.join(os.getcwd(), 'model_1'))) >0 \
+        #     and len(os.listdir(os.path.join(os.getcwd(), 'model_2'))) >0 \
+        #     and len(os.listdir(os.path.join(os.getcwd(), 'upload'))) >0:
+        #     check_path_or_not_video = video_file_path
+        #     check_path_or_not_model_1 = model_file_path_1
+        #     check_path_or_not_model_2 = model_file_path_2
 
-        else:
-            print('Video or model file did not upload properly!')
-            sys.exit(1)
+        # else:
+        #     print('Video or model file did not upload properly!')
+        #     sys.exit(1)
+        check_path_or_not_video = file_save(video_file_path, 'upload')
+        check_path_or_not_model_1 = file_save(model_file_path_1, 'model_1')
+        check_path_or_not_model_2 = file_save(model_file_path_2, 'model_2')
 
         if not os.path.exists(os.path.join(os.getcwd(),'output')):
 
@@ -222,7 +228,3 @@ def detect_behaviour(video_file_path: str, model_file_path_1: str, model_file_pa
     except Exception as e:
         print('An exception occurred:', type(e).__name__)
         print('Error message:', str(e))
-
-
-
-
